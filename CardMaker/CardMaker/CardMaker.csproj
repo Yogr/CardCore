@@ -44,6 +44,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CreateCardForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateCardForm.Designer.cs">
+      <DependentUpon>CreateCardForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CreateEffectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateEffectForm.Designer.cs">
+      <DependentUpon>CreateEffectForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="CreateSetForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -58,6 +70,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="CreateCardForm.resx">
+      <DependentUpon>CreateCardForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateEffectForm.resx">
+      <DependentUpon>CreateEffectForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreateSetForm.resx">
       <DependentUpon>CreateSetForm.cs</DependentUpon>
     </EmbeddedResource>

@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.CardMaker_logo = new System.Windows.Forms.PictureBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.CreateSet_btn = new System.Windows.Forms.Button();
             this.LoadSet_btn = new System.Windows.Forms.Button();
             this.DeleteSet_btn = new System.Windows.Forms.Button();
@@ -38,17 +38,9 @@
             this.DeleteEffect_btn = new System.Windows.Forms.Button();
             this.LoadEffect_btn = new System.Windows.Forms.Button();
             this.CreateEffect_btn = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.CardMaker_logo)).BeginInit();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // CardMaker_logo
-            // 
-            this.CardMaker_logo.BackColor = System.Drawing.SystemColors.ControlLight;
-            this.CardMaker_logo.Location = new System.Drawing.Point(267, 12);
-            this.CardMaker_logo.Name = "CardMaker_logo";
-            this.CardMaker_logo.Size = new System.Drawing.Size(453, 255);
-            this.CardMaker_logo.TabIndex = 0;
-            this.CardMaker_logo.TabStop = false;
             // 
             // CreateSet_btn
             // 
@@ -140,12 +132,24 @@
             this.CreateEffect_btn.Text = "Create a New Effect";
             this.CreateEffect_btn.UseVisualStyleBackColor = true;
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.BackColor = System.Drawing.Color.SlateBlue;
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(163, 45);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Padding = new System.Windows.Forms.Padding(10);
+            this.pictureBox1.Size = new System.Drawing.Size(659, 263);
+            this.pictureBox1.TabIndex = 10;
+            this.pictureBox1.TabStop = false;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1002, 613);
+            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.DeleteEffect_btn);
             this.Controls.Add(this.LoadEffect_btn);
             this.Controls.Add(this.CreateEffect_btn);
@@ -155,17 +159,15 @@
             this.Controls.Add(this.DeleteSet_btn);
             this.Controls.Add(this.LoadSet_btn);
             this.Controls.Add(this.CreateSet_btn);
-            this.Controls.Add(this.CardMaker_logo);
             this.Name = "MainForm";
             this.Text = "CardMaker v1.0 by Att Rat Entertainment";
-            ((System.ComponentModel.ISupportInitialize)(this.CardMaker_logo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.PictureBox CardMaker_logo;
         private System.Windows.Forms.Button CreateSet_btn;
         private System.Windows.Forms.Button LoadSet_btn;
         private System.Windows.Forms.Button DeleteSet_btn;
@@ -175,6 +177,7 @@
         private System.Windows.Forms.Button DeleteEffect_btn;
         private System.Windows.Forms.Button LoadEffect_btn;
         private System.Windows.Forms.Button CreateEffect_btn;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 

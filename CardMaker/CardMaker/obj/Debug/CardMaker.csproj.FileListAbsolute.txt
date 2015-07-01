@@ -1,1 +1,12 @@
 G:\Programming\Wizard\CardMaker\CardMaker\bin\Debug\CardMaker.exe.config
+G:\Programming\Wizard\CardMaker\CardMaker\bin\Debug\CardMaker.exe
+G:\Programming\Wizard\CardMaker\CardMaker\bin\Debug\CardMaker.pdb
+G:\Programming\Wizard\CardMaker\CardMaker\obj\Debug\CardMaker.csprojResolveAssemblyReference.cache
+G:\Programming\Wizard\CardMaker\CardMaker\obj\Debug\CardMaker.CreateCardForm.resources
+G:\Programming\Wizard\CardMaker\CardMaker\obj\Debug\CardMaker.CreateEffectForm.resources
+G:\Programming\Wizard\CardMaker\CardMaker\obj\Debug\CardMaker.CreateSetForm.resources
+G:\Programming\Wizard\CardMaker\CardMaker\obj\Debug\CardMaker.MainForm.resources
+G:\Programming\Wizard\CardMaker\CardMaker\obj\Debug\CardMaker.Properties.Resources.resources
+G:\Programming\Wizard\CardMaker\CardMaker\obj\Debug\CardMaker.csproj.GenerateResource.Cache
+G:\Programming\Wizard\CardMaker\CardMaker\obj\Debug\CardMaker.exe
+G:\Programming\Wizard\CardMaker\CardMaker\obj\Debug\CardMaker.pdb

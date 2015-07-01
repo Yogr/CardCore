@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CardMaker
 {
-    public partial class CreateSetForm : Form
+    public partial class CreateEffectForm : Form
     {
-        public CreateSetForm()
+        public CreateEffectForm()
         {
             InitializeComponent();
         }
@@ -22,12 +22,7 @@ namespace CardMaker
 
         }
 
-        private void SetName_text_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void SetType_chooser_SelectedIndexChanged(object sender, EventArgs e)
+        private void CreateEffectForm_Load(object sender, EventArgs e)
         {
 
         }
@@ -37,7 +32,12 @@ namespace CardMaker
 
         }
 
-        private void label3_Click(object sender, EventArgs e)
+        private void SetType_chooser_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SetName_text_TextChanged(object sender, EventArgs e)
         {
 
         }
