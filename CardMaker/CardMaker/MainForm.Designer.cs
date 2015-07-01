@@ -28,156 +28,214 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.CreateSet_btn = new System.Windows.Forms.Button();
-            this.LoadSet_btn = new System.Windows.Forms.Button();
-            this.DeleteSet_btn = new System.Windows.Forms.Button();
-            this.DeleteCard_btn = new System.Windows.Forms.Button();
-            this.LoadCard_btn = new System.Windows.Forms.Button();
-            this.CreateCard_btn = new System.Windows.Forms.Button();
-            this.DeleteEffect_btn = new System.Windows.Forms.Button();
-            this.LoadEffect_btn = new System.Windows.Forms.Button();
-            this.CreateEffect_btn = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FileNew_menuitem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FileLoad_menuitem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FileSave_menuitem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FileSaveAs_menuitem = new System.Windows.Forms.ToolStripMenuItem();
+            this.FileQuit_menuitem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Create_menuitem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CreateSet_menuitem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CreateCard_menuitem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CreateEffect_menuitem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Edit_menuitem = new System.Windows.Forms.ToolStripMenuItem();
+            this.EditSet_menuitem = new System.Windows.Forms.ToolStripMenuItem();
+            this.EditCard_menuitem = new System.Windows.Forms.ToolStripMenuItem();
+            this.EditEffect_menuitem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Delete_menuitem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DeleteSet_menuitem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DeleteCard_menuitem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DeleteEffect_menuitem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // CreateSet_btn
+            // menuStrip1
             // 
-            this.CreateSet_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CreateSet_btn.Location = new System.Drawing.Point(30, 347);
-            this.CreateSet_btn.Name = "CreateSet_btn";
-            this.CreateSet_btn.Size = new System.Drawing.Size(258, 55);
-            this.CreateSet_btn.TabIndex = 1;
-            this.CreateSet_btn.Text = "Create a New Set";
-            this.CreateSet_btn.UseVisualStyleBackColor = true;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileToolStripMenuItem,
+            this.Create_menuitem,
+            this.Edit_menuitem,
+            this.Delete_menuitem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1308, 24);
+            this.menuStrip1.TabIndex = 12;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // LoadSet_btn
+            // fileToolStripMenuItem
             // 
-            this.LoadSet_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoadSet_btn.Location = new System.Drawing.Point(30, 408);
-            this.LoadSet_btn.Name = "LoadSet_btn";
-            this.LoadSet_btn.Size = new System.Drawing.Size(258, 53);
-            this.LoadSet_btn.TabIndex = 2;
-            this.LoadSet_btn.Text = "Load an Existing Set";
-            this.LoadSet_btn.UseVisualStyleBackColor = true;
+            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.FileNew_menuitem,
+            this.FileLoad_menuitem,
+            this.FileSave_menuitem,
+            this.FileSaveAs_menuitem,
+            this.FileQuit_menuitem});
+            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileToolStripMenuItem.Text = "File";
             // 
-            // DeleteSet_btn
+            // FileNew_menuitem
             // 
-            this.DeleteSet_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeleteSet_btn.Location = new System.Drawing.Point(30, 467);
-            this.DeleteSet_btn.Name = "DeleteSet_btn";
-            this.DeleteSet_btn.Size = new System.Drawing.Size(258, 53);
-            this.DeleteSet_btn.TabIndex = 3;
-            this.DeleteSet_btn.Text = "Delete a Set";
-            this.DeleteSet_btn.UseVisualStyleBackColor = true;
+            this.FileNew_menuitem.Name = "FileNew_menuitem";
+            this.FileNew_menuitem.Size = new System.Drawing.Size(152, 22);
+            this.FileNew_menuitem.Text = "New";
+            this.FileNew_menuitem.Click += new System.EventHandler(this.FileNew_menuitem_Click);
             // 
-            // DeleteCard_btn
+            // FileLoad_menuitem
             // 
-            this.DeleteCard_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeleteCard_btn.Location = new System.Drawing.Point(355, 467);
-            this.DeleteCard_btn.Name = "DeleteCard_btn";
-            this.DeleteCard_btn.Size = new System.Drawing.Size(283, 53);
-            this.DeleteCard_btn.TabIndex = 6;
-            this.DeleteCard_btn.Text = "Delete a Card";
-            this.DeleteCard_btn.UseVisualStyleBackColor = true;
+            this.FileLoad_menuitem.Name = "FileLoad_menuitem";
+            this.FileLoad_menuitem.Size = new System.Drawing.Size(152, 22);
+            this.FileLoad_menuitem.Text = "Load";
             // 
-            // LoadCard_btn
+            // FileSave_menuitem
             // 
-            this.LoadCard_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoadCard_btn.Location = new System.Drawing.Point(355, 408);
-            this.LoadCard_btn.Name = "LoadCard_btn";
-            this.LoadCard_btn.Size = new System.Drawing.Size(283, 53);
-            this.LoadCard_btn.TabIndex = 5;
-            this.LoadCard_btn.Text = "Load an Existing Card";
-            this.LoadCard_btn.UseVisualStyleBackColor = true;
+            this.FileSave_menuitem.Name = "FileSave_menuitem";
+            this.FileSave_menuitem.Size = new System.Drawing.Size(152, 22);
+            this.FileSave_menuitem.Text = "Save";
+            this.FileSave_menuitem.Click += new System.EventHandler(this.FileSave_menuitem_Click);
             // 
-            // CreateCard_btn
+            // FileSaveAs_menuitem
             // 
-            this.CreateCard_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CreateCard_btn.Location = new System.Drawing.Point(355, 347);
-            this.CreateCard_btn.Name = "CreateCard_btn";
-            this.CreateCard_btn.Size = new System.Drawing.Size(283, 55);
-            this.CreateCard_btn.TabIndex = 4;
-            this.CreateCard_btn.Text = "Create a New Card";
-            this.CreateCard_btn.UseVisualStyleBackColor = true;
+            this.FileSaveAs_menuitem.Name = "FileSaveAs_menuitem";
+            this.FileSaveAs_menuitem.Size = new System.Drawing.Size(152, 22);
+            this.FileSaveAs_menuitem.Text = "Save As";
             // 
-            // DeleteEffect_btn
+            // FileQuit_menuitem
             // 
-            this.DeleteEffect_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DeleteEffect_btn.Location = new System.Drawing.Point(691, 467);
-            this.DeleteEffect_btn.Name = "DeleteEffect_btn";
-            this.DeleteEffect_btn.Size = new System.Drawing.Size(283, 53);
-            this.DeleteEffect_btn.TabIndex = 9;
-            this.DeleteEffect_btn.Text = "Delete an Effect";
-            this.DeleteEffect_btn.UseVisualStyleBackColor = true;
+            this.FileQuit_menuitem.Name = "FileQuit_menuitem";
+            this.FileQuit_menuitem.Size = new System.Drawing.Size(152, 22);
+            this.FileQuit_menuitem.Text = "Quit";
+            this.FileQuit_menuitem.Click += new System.EventHandler(this.FileQuit_menuitem_Click);
             // 
-            // LoadEffect_btn
+            // Create_menuitem
             // 
-            this.LoadEffect_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LoadEffect_btn.Location = new System.Drawing.Point(691, 408);
-            this.LoadEffect_btn.Name = "LoadEffect_btn";
-            this.LoadEffect_btn.Size = new System.Drawing.Size(283, 53);
-            this.LoadEffect_btn.TabIndex = 8;
-            this.LoadEffect_btn.Text = "Load an Existing Effect";
-            this.LoadEffect_btn.UseVisualStyleBackColor = true;
+            this.Create_menuitem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.CreateSet_menuitem,
+            this.CreateCard_menuitem,
+            this.CreateEffect_menuitem});
+            this.Create_menuitem.Name = "Create_menuitem";
+            this.Create_menuitem.Size = new System.Drawing.Size(53, 20);
+            this.Create_menuitem.Text = "Create";
             // 
-            // CreateEffect_btn
+            // CreateSet_menuitem
             // 
-            this.CreateEffect_btn.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CreateEffect_btn.Location = new System.Drawing.Point(691, 347);
-            this.CreateEffect_btn.Name = "CreateEffect_btn";
-            this.CreateEffect_btn.Size = new System.Drawing.Size(283, 55);
-            this.CreateEffect_btn.TabIndex = 7;
-            this.CreateEffect_btn.Text = "Create a New Effect";
-            this.CreateEffect_btn.UseVisualStyleBackColor = true;
+            this.CreateSet_menuitem.Name = "CreateSet_menuitem";
+            this.CreateSet_menuitem.Size = new System.Drawing.Size(104, 22);
+            this.CreateSet_menuitem.Text = "Set";
+            this.CreateSet_menuitem.Click += new System.EventHandler(this.CreateSet_menuitem_Click);
             // 
-            // pictureBox1
+            // CreateCard_menuitem
             // 
-            this.pictureBox1.BackColor = System.Drawing.Color.SlateBlue;
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(163, 45);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Padding = new System.Windows.Forms.Padding(10);
-            this.pictureBox1.Size = new System.Drawing.Size(659, 263);
-            this.pictureBox1.TabIndex = 10;
-            this.pictureBox1.TabStop = false;
+            this.CreateCard_menuitem.Name = "CreateCard_menuitem";
+            this.CreateCard_menuitem.Size = new System.Drawing.Size(104, 22);
+            this.CreateCard_menuitem.Text = "Card";
+            this.CreateCard_menuitem.Click += new System.EventHandler(this.CreateCard_menuitem_Click);
+            // 
+            // CreateEffect_menuitem
+            // 
+            this.CreateEffect_menuitem.Name = "CreateEffect_menuitem";
+            this.CreateEffect_menuitem.Size = new System.Drawing.Size(104, 22);
+            this.CreateEffect_menuitem.Text = "Effect";
+            this.CreateEffect_menuitem.Click += new System.EventHandler(this.CreateEffect_menuitem_Click);
+            // 
+            // Edit_menuitem
+            // 
+            this.Edit_menuitem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.EditSet_menuitem,
+            this.EditCard_menuitem,
+            this.EditEffect_menuitem});
+            this.Edit_menuitem.Name = "Edit_menuitem";
+            this.Edit_menuitem.Size = new System.Drawing.Size(39, 20);
+            this.Edit_menuitem.Text = "Edit";
+            // 
+            // EditSet_menuitem
+            // 
+            this.EditSet_menuitem.Name = "EditSet_menuitem";
+            this.EditSet_menuitem.Size = new System.Drawing.Size(104, 22);
+            this.EditSet_menuitem.Text = "Set";
+            // 
+            // EditCard_menuitem
+            // 
+            this.EditCard_menuitem.Name = "EditCard_menuitem";
+            this.EditCard_menuitem.Size = new System.Drawing.Size(104, 22);
+            this.EditCard_menuitem.Text = "Card";
+            // 
+            // EditEffect_menuitem
+            // 
+            this.EditEffect_menuitem.Name = "EditEffect_menuitem";
+            this.EditEffect_menuitem.Size = new System.Drawing.Size(104, 22);
+            this.EditEffect_menuitem.Text = "Effect";
+            // 
+            // Delete_menuitem
+            // 
+            this.Delete_menuitem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.DeleteSet_menuitem,
+            this.DeleteCard_menuitem,
+            this.DeleteEffect_menuitem});
+            this.Delete_menuitem.Name = "Delete_menuitem";
+            this.Delete_menuitem.Size = new System.Drawing.Size(52, 20);
+            this.Delete_menuitem.Text = "Delete";
+            // 
+            // DeleteSet_menuitem
+            // 
+            this.DeleteSet_menuitem.Name = "DeleteSet_menuitem";
+            this.DeleteSet_menuitem.Size = new System.Drawing.Size(104, 22);
+            this.DeleteSet_menuitem.Text = "Set";
+            // 
+            // DeleteCard_menuitem
+            // 
+            this.DeleteCard_menuitem.Name = "DeleteCard_menuitem";
+            this.DeleteCard_menuitem.Size = new System.Drawing.Size(104, 22);
+            this.DeleteCard_menuitem.Text = "Card";
+            // 
+            // DeleteEffect_menuitem
+            // 
+            this.DeleteEffect_menuitem.Name = "DeleteEffect_menuitem";
+            this.DeleteEffect_menuitem.Size = new System.Drawing.Size(104, 22);
+            this.DeleteEffect_menuitem.Text = "Effect";
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1002, 613);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.DeleteEffect_btn);
-            this.Controls.Add(this.LoadEffect_btn);
-            this.Controls.Add(this.CreateEffect_btn);
-            this.Controls.Add(this.DeleteCard_btn);
-            this.Controls.Add(this.LoadCard_btn);
-            this.Controls.Add(this.CreateCard_btn);
-            this.Controls.Add(this.DeleteSet_btn);
-            this.Controls.Add(this.LoadSet_btn);
-            this.Controls.Add(this.CreateSet_btn);
+            this.BackgroundImage = global::CardMaker.Properties.Resources.card_maker_logo;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.ClientSize = new System.Drawing.Size(1308, 743);
+            this.Controls.Add(this.menuStrip1);
+            this.IsMdiContainer = true;
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "MainForm";
             this.Text = "CardMaker v1.0 by Att Rat Entertainment";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Button CreateSet_btn;
-        private System.Windows.Forms.Button LoadSet_btn;
-        private System.Windows.Forms.Button DeleteSet_btn;
-        private System.Windows.Forms.Button DeleteCard_btn;
-        private System.Windows.Forms.Button LoadCard_btn;
-        private System.Windows.Forms.Button CreateCard_btn;
-        private System.Windows.Forms.Button DeleteEffect_btn;
-        private System.Windows.Forms.Button LoadEffect_btn;
-        private System.Windows.Forms.Button CreateEffect_btn;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem Create_menuitem;
+        private System.Windows.Forms.ToolStripMenuItem CreateSet_menuitem;
+        private System.Windows.Forms.ToolStripMenuItem CreateCard_menuitem;
+        private System.Windows.Forms.ToolStripMenuItem CreateEffect_menuitem;
+        private System.Windows.Forms.ToolStripMenuItem Edit_menuitem;
+        private System.Windows.Forms.ToolStripMenuItem EditSet_menuitem;
+        private System.Windows.Forms.ToolStripMenuItem EditCard_menuitem;
+        private System.Windows.Forms.ToolStripMenuItem EditEffect_menuitem;
+        private System.Windows.Forms.ToolStripMenuItem Delete_menuitem;
+        private System.Windows.Forms.ToolStripMenuItem DeleteSet_menuitem;
+        private System.Windows.Forms.ToolStripMenuItem DeleteCard_menuitem;
+        private System.Windows.Forms.ToolStripMenuItem DeleteEffect_menuitem;
+        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem FileNew_menuitem;
+        private System.Windows.Forms.ToolStripMenuItem FileLoad_menuitem;
+        private System.Windows.Forms.ToolStripMenuItem FileSave_menuitem;
+        private System.Windows.Forms.ToolStripMenuItem FileSaveAs_menuitem;
+        private System.Windows.Forms.ToolStripMenuItem FileQuit_menuitem;
     }
 }
 

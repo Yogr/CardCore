@@ -33,7 +33,7 @@
             this.EffectType_chooser = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.EffectName_text = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.EffectValue_text = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -65,7 +65,6 @@
             this.label2.Size = new System.Drawing.Size(57, 13);
             this.label2.TabIndex = 10;
             this.label2.Text = "Add Effect";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // EffectType_chooser
             // 
@@ -78,7 +77,6 @@
             this.EffectType_chooser.Name = "EffectType_chooser";
             this.EffectType_chooser.Size = new System.Drawing.Size(201, 21);
             this.EffectType_chooser.TabIndex = 9;
-            this.EffectType_chooser.SelectedIndexChanged += new System.EventHandler(this.SetType_chooser_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -89,7 +87,6 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "Effect Name";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // EffectName_text
             // 
@@ -97,14 +94,13 @@
             this.EffectName_text.Name = "EffectName_text";
             this.EffectName_text.Size = new System.Drawing.Size(362, 20);
             this.EffectName_text.TabIndex = 7;
-            this.EffectName_text.TextChanged += new System.EventHandler(this.SetName_text_TextChanged);
             // 
-            // textBox1
+            // EffectValue_text
             // 
-            this.textBox1.Location = new System.Drawing.Point(349, 108);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 11;
+            this.EffectValue_text.Location = new System.Drawing.Point(349, 108);
+            this.EffectValue_text.Name = "EffectValue_text";
+            this.EffectValue_text.Size = new System.Drawing.Size(100, 20);
+            this.EffectValue_text.TabIndex = 11;
             // 
             // label3
             // 
@@ -144,7 +140,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(364, 375);
+            this.button3.Location = new System.Drawing.Point(375, 375);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 18;
@@ -153,20 +149,20 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(218, 375);
+            this.button5.Location = new System.Drawing.Point(178, 376);
             this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(44, 23);
+            this.button5.Size = new System.Drawing.Size(69, 23);
             this.button5.TabIndex = 20;
-            this.button5.Text = "^";
+            this.button5.Text = "Move Up";
             this.button5.UseVisualStyleBackColor = true;
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(268, 375);
+            this.button6.Location = new System.Drawing.Point(254, 376);
             this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(40, 23);
+            this.button6.Size = new System.Drawing.Size(75, 23);
             this.button6.TabIndex = 21;
-            this.button6.Text = "v";
+            this.button6.Text = "Move Down";
             this.button6.UseVisualStyleBackColor = true;
             // 
             // button7
@@ -186,6 +182,7 @@
             this.Create_btn.TabIndex = 23;
             this.Create_btn.Text = "Create Effect";
             this.Create_btn.UseVisualStyleBackColor = true;
+            this.Create_btn.Click += new System.EventHandler(this.Create_btn_Click);
             // 
             // Cancel_btn
             // 
@@ -213,7 +210,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.EffectValue_text);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.EffectType_chooser);
             this.Controls.Add(this.label1);
@@ -234,7 +231,7 @@
         private System.Windows.Forms.ComboBox EffectType_chooser;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox EffectName_text;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox EffectValue_text;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;

@@ -56,13 +56,19 @@
             this.checkBox6 = new System.Windows.Forms.CheckBox();
             this.CardRarity_chooser = new System.Windows.Forms.ComboBox();
             this.CardCost_text = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.CardTagline_text = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.CardEffects_chooser = new System.Windows.Forms.ComboBox();
             this.AddEffect_btn = new System.Windows.Forms.Button();
-            this.CardEffects_box = new System.Windows.Forms.ListBox();
+            this.CardEffects_list = new System.Windows.Forms.ListBox();
             this.RemoveEffect_btn = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.CardAttack_text = new System.Windows.Forms.TextBox();
+            this.CardDefense_text = new System.Windows.Forms.TextBox();
+            this.CardHitpoints_text = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.Card_image)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Frame_image)).BeginInit();
             this.SuspendLayout();
@@ -142,7 +148,7 @@
             // 
             this.CardName_text.Location = new System.Drawing.Point(203, 50);
             this.CardName_text.Name = "CardName_text";
-            this.CardName_text.Size = new System.Drawing.Size(362, 20);
+            this.CardName_text.Size = new System.Drawing.Size(260, 20);
             this.CardName_text.TabIndex = 10;
             // 
             // Title_label
@@ -335,22 +341,22 @@
             this.CardCost_text.Size = new System.Drawing.Size(100, 20);
             this.CardCost_text.TabIndex = 35;
             // 
-            // textBox1
+            // CardTagline_text
             // 
-            this.textBox1.Location = new System.Drawing.Point(29, 478);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(155, 64);
-            this.textBox1.TabIndex = 36;
+            this.CardTagline_text.Location = new System.Drawing.Point(29, 478);
+            this.CardTagline_text.Multiline = true;
+            this.CardTagline_text.Name = "CardTagline_text";
+            this.CardTagline_text.Size = new System.Drawing.Size(155, 64);
+            this.CardTagline_text.TabIndex = 36;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(29, 459);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(49, 13);
+            this.label9.Size = new System.Drawing.Size(42, 13);
             this.label9.TabIndex = 37;
-            this.label9.Text = "Fun Text";
+            this.label9.Text = "Tagline";
             // 
             // label10
             // 
@@ -378,14 +384,14 @@
             this.AddEffect_btn.Text = "Add Effect";
             this.AddEffect_btn.UseVisualStyleBackColor = true;
             // 
-            // CardEffects_box
+            // CardEffects_list
             // 
-            this.CardEffects_box.FormattingEnabled = true;
-            this.CardEffects_box.Location = new System.Drawing.Point(465, 377);
-            this.CardEffects_box.Name = "CardEffects_box";
-            this.CardEffects_box.ScrollAlwaysVisible = true;
-            this.CardEffects_box.Size = new System.Drawing.Size(165, 82);
-            this.CardEffects_box.TabIndex = 41;
+            this.CardEffects_list.FormattingEnabled = true;
+            this.CardEffects_list.Location = new System.Drawing.Point(465, 377);
+            this.CardEffects_list.Name = "CardEffects_list";
+            this.CardEffects_list.ScrollAlwaysVisible = true;
+            this.CardEffects_list.Size = new System.Drawing.Size(165, 82);
+            this.CardEffects_list.TabIndex = 41;
             // 
             // RemoveEffect_btn
             // 
@@ -396,18 +402,72 @@
             this.RemoveEffect_btn.Text = "Remove";
             this.RemoveEffect_btn.UseVisualStyleBackColor = true;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(50, 293);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(38, 13);
+            this.label11.TabIndex = 43;
+            this.label11.Text = "Attack";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(41, 324);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(47, 13);
+            this.label12.TabIndex = 44;
+            this.label12.Text = "Defense";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(41, 354);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(48, 13);
+            this.label13.TabIndex = 45;
+            this.label13.Text = "Hitpoints";
+            // 
+            // CardAttack_text
+            // 
+            this.CardAttack_text.Location = new System.Drawing.Point(102, 291);
+            this.CardAttack_text.Name = "CardAttack_text";
+            this.CardAttack_text.Size = new System.Drawing.Size(61, 20);
+            this.CardAttack_text.TabIndex = 46;
+            // 
+            // CardDefense_text
+            // 
+            this.CardDefense_text.Location = new System.Drawing.Point(102, 321);
+            this.CardDefense_text.Name = "CardDefense_text";
+            this.CardDefense_text.Size = new System.Drawing.Size(61, 20);
+            this.CardDefense_text.TabIndex = 47;
+            // 
+            // CardHitpoints_text
+            // 
+            this.CardHitpoints_text.Location = new System.Drawing.Point(101, 350);
+            this.CardHitpoints_text.Name = "CardHitpoints_text";
+            this.CardHitpoints_text.Size = new System.Drawing.Size(62, 20);
+            this.CardHitpoints_text.TabIndex = 48;
+            // 
             // CreateCardForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(708, 625);
+            this.Controls.Add(this.CardHitpoints_text);
+            this.Controls.Add(this.CardDefense_text);
+            this.Controls.Add(this.CardAttack_text);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.RemoveEffect_btn);
-            this.Controls.Add(this.CardEffects_box);
+            this.Controls.Add(this.CardEffects_list);
             this.Controls.Add(this.AddEffect_btn);
             this.Controls.Add(this.CardEffects_chooser);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.CardTagline_text);
             this.Controls.Add(this.CardCost_text);
             this.Controls.Add(this.CardRarity_chooser);
             this.Controls.Add(this.checkBox6);
@@ -473,12 +533,18 @@
         private System.Windows.Forms.CheckBox checkBox6;
         private System.Windows.Forms.ComboBox CardRarity_chooser;
         private System.Windows.Forms.TextBox CardCost_text;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox CardTagline_text;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox CardEffects_chooser;
         private System.Windows.Forms.Button AddEffect_btn;
-        private System.Windows.Forms.ListBox CardEffects_box;
+        private System.Windows.Forms.ListBox CardEffects_list;
         private System.Windows.Forms.Button RemoveEffect_btn;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox CardAttack_text;
+        private System.Windows.Forms.TextBox CardDefense_text;
+        private System.Windows.Forms.TextBox CardHitpoints_text;
     }
 }

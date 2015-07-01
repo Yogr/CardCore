@@ -12,34 +12,39 @@ namespace CardMaker
 {
     public partial class CreateEffectForm : Form
     {
-        public CreateEffectForm()
+        private bool mEditMode;
+
+        public CreateEffectForm(bool editMode = false)
         {
+            mEditMode = editMode;
+
+            if(true == editMode)
+            {
+                Title_label.Text = "Edit Effect";
+                Create_btn.Text  = "Save Changes";
+                Cancel_btn.Text  = "Discard Changes";
+            }
+
             InitializeComponent();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
 
-        }
 
         private void CreateEffectForm_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void Create_btn_Click(object sender, EventArgs e)
         {
+            if(mEditMode) // Save changes to node
+            {
 
-        }
+            }
+            else // Create new
+            {
 
-        private void SetType_chooser_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void SetName_text_TextChanged(object sender, EventArgs e)
-        {
-
+            }
         }
     }
 }
