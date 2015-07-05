@@ -47,6 +47,8 @@
             this.DeleteSet_menuitem = new System.Windows.Forms.ToolStripMenuItem();
             this.DeleteCard_menuitem = new System.Windows.Forms.ToolStripMenuItem();
             this.DeleteEffect_menuitem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.CurProject_label = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -78,7 +80,7 @@
             // FileNew_menuitem
             // 
             this.FileNew_menuitem.Name = "FileNew_menuitem";
-            this.FileNew_menuitem.Size = new System.Drawing.Size(152, 22);
+            this.FileNew_menuitem.Size = new System.Drawing.Size(114, 22);
             this.FileNew_menuitem.Text = "New";
             this.FileNew_menuitem.Click += new System.EventHandler(this.FileNew_menuitem_Click);
             // 
@@ -87,24 +89,25 @@
             this.FileLoad_menuitem.Name = "FileLoad_menuitem";
             this.FileLoad_menuitem.Size = new System.Drawing.Size(152, 22);
             this.FileLoad_menuitem.Text = "Load";
+            this.FileLoad_menuitem.Click += new System.EventHandler(this.FileLoad_menuitem_Click);
             // 
             // FileSave_menuitem
             // 
             this.FileSave_menuitem.Name = "FileSave_menuitem";
-            this.FileSave_menuitem.Size = new System.Drawing.Size(152, 22);
+            this.FileSave_menuitem.Size = new System.Drawing.Size(114, 22);
             this.FileSave_menuitem.Text = "Save";
             this.FileSave_menuitem.Click += new System.EventHandler(this.FileSave_menuitem_Click);
             // 
             // FileSaveAs_menuitem
             // 
             this.FileSaveAs_menuitem.Name = "FileSaveAs_menuitem";
-            this.FileSaveAs_menuitem.Size = new System.Drawing.Size(152, 22);
+            this.FileSaveAs_menuitem.Size = new System.Drawing.Size(114, 22);
             this.FileSaveAs_menuitem.Text = "Save As";
             // 
             // FileQuit_menuitem
             // 
             this.FileQuit_menuitem.Name = "FileQuit_menuitem";
-            this.FileQuit_menuitem.Size = new System.Drawing.Size(152, 22);
+            this.FileQuit_menuitem.Size = new System.Drawing.Size(114, 22);
             this.FileQuit_menuitem.Text = "Quit";
             this.FileQuit_menuitem.Click += new System.EventHandler(this.FileQuit_menuitem_Click);
             // 
@@ -195,6 +198,30 @@
             this.DeleteEffect_menuitem.Size = new System.Drawing.Size(104, 22);
             this.DeleteEffect_menuitem.Text = "Effect";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.Yellow;
+            this.label1.Location = new System.Drawing.Point(13, 36);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(123, 20);
+            this.label1.TabIndex = 14;
+            this.label1.Text = "Current Project: ";
+            // 
+            // CurProject_label
+            // 
+            this.CurProject_label.AutoSize = true;
+            this.CurProject_label.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.CurProject_label.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CurProject_label.ForeColor = System.Drawing.Color.Yellow;
+            this.CurProject_label.Location = new System.Drawing.Point(136, 36);
+            this.CurProject_label.Name = "CurProject_label";
+            this.CurProject_label.Size = new System.Drawing.Size(63, 20);
+            this.CurProject_label.TabIndex = 15;
+            this.CurProject_label.Text = "<none>";
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -203,6 +230,8 @@
             this.BackgroundImage = global::CardMaker.Properties.Resources.card_maker_logo;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(1308, 743);
+            this.Controls.Add(this.CurProject_label);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
@@ -236,6 +265,8 @@
         private System.Windows.Forms.ToolStripMenuItem FileSave_menuitem;
         private System.Windows.Forms.ToolStripMenuItem FileSaveAs_menuitem;
         private System.Windows.Forms.ToolStripMenuItem FileQuit_menuitem;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label CurProject_label;
     }
 }
 

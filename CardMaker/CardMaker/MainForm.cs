@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
+using CardCore;
 
 namespace CardMaker
 {
@@ -17,9 +19,17 @@ namespace CardMaker
             InitializeComponent();
         }
 
-        private void _CreateNewCardFile(string name)
+        private void _CreateNewMasterFile(string name)
         {
-            Console.WriteLine(name);
+            if(ProjectManager.GetInstance().CreateNewFile(name))
+            {
+                _SetActiveProject(ProjectManager.GetInstance().GetActiveProject());
+            }
+        }
+
+        private void _SetActiveProject(string name)
+        {
+            this.CurProject_label.Text = name;
         }
 
         private void CreateSet_menuitem_Click(object sender, EventArgs e)
@@ -66,7 +76,7 @@ namespace CardMaker
 
             if(DialogResult.OK == result) // Create new file
             {
-                _CreateNewCardFile(newFileName);
+                _CreateNewMasterFile(newFileName);
             }
             form.Close();
         }
@@ -79,6 +89,23 @@ namespace CardMaker
         private void FileQuit_menuitem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void FileLoad_menuitem_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.CheckPathExists = true;
+            ofd.Filter = "XML Files (*.xml)|*.xml";
+
+            DialogResult result = ofd.ShowDialog();
+
+            if (DialogResult.OK == result) // Load file
+            {
+                if(ProjectManager.GetInstance().LoadProject(ofd.FileName))
+                {
+                    _SetActiveProject(ProjectManager.GetInstance().GetActiveProject());
+                }
+            }
         }
 
 

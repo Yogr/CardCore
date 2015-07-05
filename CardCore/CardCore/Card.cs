@@ -16,6 +16,11 @@ namespace CardCore
             mValue = value;
         }
 
+        public Effect()
+        {
+
+        }
+
         public enum EffectType
         {
             EFFECTTYPE_NONE,
@@ -65,6 +70,7 @@ namespace CardCore
         private TargetType  mTarget;
         private TargetRange mTargetRange;
         private int         mValue;
+        private uint        mId;
 
         public string Name
         {
@@ -89,11 +95,17 @@ namespace CardCore
             get { return this.mTargetRange; }
             set { this.mTargetRange = value; }
         }
-
+        
         public int Value
         {
             get { return this.mValue; }
             set { this.mValue = value; }
+        }
+
+        public uint Id
+        {
+            get { return this.mId; }
+            set { this.mId = value; }
         }
     }
 
@@ -101,7 +113,7 @@ namespace CardCore
     {
         public Card()
         {
-            mEffects = new List<Effect>();
+            mEffects = new List<uint>();
         }
 
         ~Card()
@@ -130,7 +142,7 @@ namespace CardCore
         private uint         mCost;
         private CardType     mType;
         private CardSubType  mSubType;
-        private List<Effect> mEffects;
+        private List<uint>   mEffects;
         private bool         mIsTapped;
 
         public string Name
@@ -163,13 +175,21 @@ namespace CardCore
             get { return this.mSubType; }
         }
 
-        public List<Effect> GetAllEffects() { return mEffects; }
+        public List<uint> GetAllEffectIds() { return mEffects; }
 
-        public void AddEffect(Effect e) { mEffects.Add(e); }
+        public void GetEffects(List<Effect> outList)
+        {
+            foreach(uint e in mEffects)
+            {
+                outList.Add(EffectManager.GetInstance().GetEffectById(e));
+            }
+        }
 
-        public bool RemoveEffect(Effect e) { return mEffects.Remove(e); }
+        public void AddEffectById(uint id) { mEffects.Add(id); }
 
-        public Effect GetEffectAtIndex(int index) { return mEffects[index]; }
+        public bool RemoveEffectById(uint id) { return mEffects.Remove(id); }
+
+        public uint GetEffectIdAtIndex(int index) { return mEffects[index]; }
 
         public void RemoveEffectAtIndex(int index) { mEffects.RemoveAt(index); }
 

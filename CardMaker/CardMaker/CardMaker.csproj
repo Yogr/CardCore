@@ -69,6 +69,7 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="ProjectManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="CreateCardForm.resx">
       <DependentUpon>CreateCardForm.cs</DependentUpon>
@@ -107,6 +108,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="assets\card_maker_logo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\CardCore\CardCore\CardCore.csproj">
+      <Project>{a4d894dc-8ddb-45c2-ad6f-831ab60c4940}</Project>
+      <Name>CardCore</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -25,17 +25,74 @@ namespace CardCore
         {
         }
 
-        public void Parse(List<Card> outList)
+        public uint Parse(List<Card> outList)
         {
+            uint highestId = 0;
+
             XmlDocument doc = new XmlDocument();
+            doc.Load(mFilename);
+
             XmlNodeList nodes = doc.SelectNodes(ROOT_NODE);
             
             foreach (XmlNode node in nodes)
             {
                 Card card = new Card();
 
+                foreach(XmlNode c in node.ChildNodes)
+                {
+                    switch(c.Name)
+                    {
+                        case P_NAME:
+                            {
+                                card.Name = c.InnerText;
+                                break;
+                            }
+                        case P_TYPE:
+                            {
+                                card.Type = (Card.CardType)Convert.ToInt32(c.InnerText);
+                                break;
+                            }
+                        case P_SUBTYPE:
+                            {
+                                card.SubType = (Card.CardSubType)Convert.ToInt32(c.InnerText);
+                                break;
+                            }
+                        case P_ID:
+                            {
+                                card.Id = Convert.ToUInt32(c.InnerText);
+                                if(highestId < card.Id)
+                                {
+                                    highestId = card.Id;
+                                }
+                                break;
+                            }
+                        case P_COST:
+                            {
+                                card.Cost = Convert.ToUInt32(c.InnerText);
+                                break;
+                            }
+                        case P_EFFECTS:
+                            {
+                                foreach(XmlNode e in c.ChildNodes)
+                                {
+                                    uint eId = Convert.ToUInt32(e.InnerText);
+                                    card.AddEffectById(eId);
+                                }
+                                break;
+                            }
+                        default:
+                            {
+                                Console.WriteLine(c.Name);
+                                break;
+                            }
+                    }
+                }
+                
                 outList.Add(card);
             }
+
+            Console.WriteLine("Highest Id: " + (highestId + 1));
+            return highestId+1;
         }
 
         public void EditNode(XmlNode node, int position)
@@ -108,32 +165,37 @@ namespace CardCore
             element.InnerText = data.Cost.ToString();
             card.AppendChild(element);
 
-            List<Effect> effectsList = data.GetAllEffects();
+            List<uint> effectsList = data.GetAllEffectIds();
             if (0 < effectsList.Count)
             {
                 XmlElement effects = doc.CreateElement(P_EFFECTS);
 
-                foreach (Effect e in effectsList)
+                foreach (uint eId in effectsList)
                 {
-                    XmlElement effect = doc.CreateElement(P_EFFECT);
+                    Effect e = EffectManager.GetInstance().GetEffectById(eId);
 
-                    XmlElement efel = doc.CreateElement(P_NAME);
-                    efel.InnerText = e.Name;
-                    effect.AppendChild(efel);
+                    if(null != e)
+                    {
+                        XmlElement effect = doc.CreateElement(P_EFFECT);
 
-                    efel = doc.CreateElement(P_TYPE);
-                    efel.InnerText = e.Type.ToString();
-                    effect.AppendChild(efel);
+                        XmlElement efel = doc.CreateElement(P_NAME);
+                        efel.InnerText = e.Name;
+                        effect.AppendChild(efel);
 
-                    efel = doc.CreateElement("Target");
-                    efel.InnerText = e.Target.ToString();
-                    effect.AppendChild(efel);
+                        efel = doc.CreateElement(P_TYPE);
+                        efel.InnerText = e.Type.ToString();
+                        effect.AppendChild(efel);
 
-                    efel = doc.CreateElement("Value");
-                    efel.InnerText = e.Value.ToString();
-                    effect.AppendChild(efel);
+                        efel = doc.CreateElement("Target");
+                        efel.InnerText = e.Target.ToString();
+                        effect.AppendChild(efel);
 
-                    effects.AppendChild(effect);
+                        efel = doc.CreateElement("Value");
+                        efel.InnerText = e.Value.ToString();
+                        effect.AppendChild(efel);
+
+                        effects.AppendChild(effect);
+                    }
                 }
 
                 card.AppendChild(effects);

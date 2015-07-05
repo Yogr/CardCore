@@ -10,3 +10,5 @@ G:\Programming\Wizard\CardMaker\CardMaker\obj\Debug\CardMaker.Properties.Resourc
 G:\Programming\Wizard\CardMaker\CardMaker\obj\Debug\CardMaker.csproj.GenerateResource.Cache
 G:\Programming\Wizard\CardMaker\CardMaker\obj\Debug\CardMaker.exe
 G:\Programming\Wizard\CardMaker\CardMaker\obj\Debug\CardMaker.pdb
+G:\Programming\Wizard\CardMaker\CardMaker\bin\Debug\CardCore.exe
+G:\Programming\Wizard\CardMaker\CardMaker\bin\Debug\CardCore.pdb

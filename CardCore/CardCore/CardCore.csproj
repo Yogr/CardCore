@@ -36,10 +36,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Card.cs" />
+    <Compile Include="CardManager.cs" />
     <Compile Include="CardParser.cs" />
+    <Compile Include="EffectManager.cs" />
+    <Compile Include="EffectParser.cs" />
     <Compile Include="FilePaths.cs" />
     <Compile Include="Parser.cs" />
     <Compile Include="Program.cs" />
+    <Compile Include="Set.cs" />
+    <Compile Include="SetManager.cs" />
+    <Compile Include="SetParser.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
