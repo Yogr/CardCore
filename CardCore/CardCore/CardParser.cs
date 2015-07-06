@@ -25,10 +25,8 @@ namespace CardCore
         {
         }
 
-        public uint Parse(List<Card> outList)
+        public void Parse(List<Card> outList)
         {
-            uint highestId = 0;
-
             XmlDocument doc = new XmlDocument();
             doc.Load(mFilename);
 
@@ -60,10 +58,6 @@ namespace CardCore
                         case P_ID:
                             {
                                 card.Id = Convert.ToUInt32(c.InnerText);
-                                if(highestId < card.Id)
-                                {
-                                    highestId = card.Id;
-                                }
                                 break;
                             }
                         case P_COST:
@@ -90,9 +84,6 @@ namespace CardCore
                 
                 outList.Add(card);
             }
-
-            Console.WriteLine("Highest Id: " + (highestId + 1));
-            return highestId+1;
         }
 
         public void EditNode(XmlNode node, int position)
@@ -172,30 +163,9 @@ namespace CardCore
 
                 foreach (uint eId in effectsList)
                 {
-                    Effect e = EffectManager.GetInstance().GetEffectById(eId);
-
-                    if(null != e)
-                    {
-                        XmlElement effect = doc.CreateElement(P_EFFECT);
-
-                        XmlElement efel = doc.CreateElement(P_NAME);
-                        efel.InnerText = e.Name;
-                        effect.AppendChild(efel);
-
-                        efel = doc.CreateElement(P_TYPE);
-                        efel.InnerText = e.Type.ToString();
-                        effect.AppendChild(efel);
-
-                        efel = doc.CreateElement("Target");
-                        efel.InnerText = e.Target.ToString();
-                        effect.AppendChild(efel);
-
-                        efel = doc.CreateElement("Value");
-                        efel.InnerText = e.Value.ToString();
-                        effect.AppendChild(efel);
-
-                        effects.AppendChild(effect);
-                    }
+                    XmlElement effect = doc.CreateElement(P_EFFECT);
+                    effect.InnerText = eId.ToString();
+                    effects.AppendChild(effect);
                 }
 
                 card.AppendChild(effects);

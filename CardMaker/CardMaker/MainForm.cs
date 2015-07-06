@@ -14,6 +14,8 @@ namespace CardMaker
 {
     public partial class MainForm : Form
     {
+        private ProjectForm mCurrentProjectForm;
+
         public MainForm()
         {
             InitializeComponent();
@@ -29,28 +31,12 @@ namespace CardMaker
 
         private void _SetActiveProject(string name)
         {
-            this.CurProject_label.Text = name;
-        }
-
-        private void CreateSet_menuitem_Click(object sender, EventArgs e)
-        {
-            CreateSetForm form = new CreateSetForm();
-            form.MdiParent = this;
-            form.Show();
-        }
-
-        private void CreateCard_menuitem_Click(object sender, EventArgs e)
-        {
-            CreateCardForm form = new CreateCardForm();
-            form.MdiParent = this;
-            form.Show();
-        }
-
-        private void CreateEffect_menuitem_Click(object sender, EventArgs e)
-        {
-            CreateEffectForm form = new CreateEffectForm();
-            form.MdiParent = this;
-            form.Show();
+            //this.CurProject_label.Text = name;
+            mCurrentProjectForm = new ProjectForm();
+            mCurrentProjectForm.Text = name + " Project";
+            mCurrentProjectForm.MdiParent = this;
+            mCurrentProjectForm.Focus();
+            mCurrentProjectForm.Show();
         }
 
         private void FileNew_menuitem_Click(object sender, EventArgs e)
@@ -107,7 +93,6 @@ namespace CardMaker
                 }
             }
         }
-
 
     }
 }

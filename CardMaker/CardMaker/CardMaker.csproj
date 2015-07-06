@@ -44,6 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CardControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CardControl.Designer.cs">
+      <DependentUpon>CardControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="CreateCardForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -62,6 +68,12 @@
     <Compile Include="CreateSetForm.Designer.cs">
       <DependentUpon>CreateSetForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="EffectControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EffectControl.Designer.cs">
+      <DependentUpon>EffectControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,8 +81,23 @@
       <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="ProjectForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProjectForm.Designer.cs">
+      <DependentUpon>ProjectForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ProjectManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SetControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SetControl.Designer.cs">
+      <DependentUpon>SetControl.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="CardControl.resx">
+      <DependentUpon>CardControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CreateCardForm.resx">
       <DependentUpon>CreateCardForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -80,8 +107,14 @@
     <EmbeddedResource Include="CreateSetForm.resx">
       <DependentUpon>CreateSetForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EffectControl.resx">
+      <DependentUpon>EffectControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProjectForm.resx">
+      <DependentUpon>ProjectForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -93,6 +126,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SetControl.resx">
+      <DependentUpon>SetControl.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

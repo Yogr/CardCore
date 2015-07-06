@@ -9,7 +9,6 @@ namespace CardCore
     public class CardManager
     {
         private List<Card> mCards;
-        private uint mNextId;
 
         private static CardManager sInstance = null;
 
@@ -27,9 +26,29 @@ namespace CardCore
             mCards = new List<Card>();
         }
 
+        public uint GetNextValidId()
+        {
+            if(mCards.Count > 0)
+            {
+                return mCards.Last().Id + 1;
+            }
+            
+            return 0;
+        }
+
         public List<Card> GetListCards()
         {
             return mCards;
+        }
+
+        public Card GetCardAtIndex(int index)
+        {
+            return mCards[index];
+        }
+
+        public void AddCard(Card card)
+        {
+            mCards.Add(card);
         }
 
         public void SaveDataToFile(string rootFolder)
@@ -49,7 +68,7 @@ namespace CardCore
 
             CardParser parser = new CardParser(cardFp);
 
-            mNextId = parser.Parse(mCards);
+            parser.Parse(mCards);
         }
 
     }

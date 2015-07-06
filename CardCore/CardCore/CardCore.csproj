@@ -38,9 +38,11 @@
     <Compile Include="Card.cs" />
     <Compile Include="CardManager.cs" />
     <Compile Include="CardParser.cs" />
+    <Compile Include="Effect.cs" />
     <Compile Include="EffectManager.cs" />
     <Compile Include="EffectParser.cs" />
     <Compile Include="FilePaths.cs" />
+    <Compile Include="GameEntity.cs" />
     <Compile Include="Parser.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Set.cs" />
