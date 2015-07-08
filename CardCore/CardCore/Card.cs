@@ -23,7 +23,7 @@ namespace CardCore
             CARDTYPE_NONE,
             CARDTYPE_SPELL,
             CARDTYPE_DEFSPELL,
-            CARDTYPE_MONSTER,
+            CARDTYPE_CREATURE,
             CARDTYPE_RELIC,
             CARDTYPE_COUNT,
         };
@@ -48,6 +48,7 @@ namespace CardCore
         private CardType     mType;
         private CardSubType  mSubType;
         private CardRarity   mRarity;
+        private uint         mFactions;
         private int          mAttack;
         private int          mDefense;
         private int          mHitpoints;
@@ -108,6 +109,31 @@ namespace CardCore
             get { return this.mHitpoints; }
         }
 
+        public bool BelongsToFaction(GameEntity.Faction faction)
+        {
+            return 0 != (mFactions & Convert.ToUInt32(faction));
+        }
+
+        public void SetFactions(uint factions)
+        {
+            mFactions = factions;
+        }
+
+        public uint GetFactions()
+        {
+            return mFactions;
+        }
+
+        public void AddFaction(GameEntity.Faction faction)
+        {
+            mFactions |= Convert.ToUInt32(faction);
+        }
+
+        public void RemoveFaction(GameEntity.Faction faction)
+        { 
+            mFactions &= ~Convert.ToUInt32(faction);
+        }
+
         public List<uint> GetAllEffectIds() { return mEffects; }
 
         public void GetEffects(List<Effect> outList)
@@ -119,6 +145,8 @@ namespace CardCore
         }
 
         public void AddEffectById(uint id) { mEffects.Add(id); }
+
+        public void RemoveAllEffects() { mEffects.Clear(); }
 
         public bool RemoveEffectById(uint id) { return mEffects.Remove(id); }
 

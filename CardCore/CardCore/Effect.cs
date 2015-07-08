@@ -12,14 +12,20 @@ namespace CardCore
         {
             mName = name;
             mId = id;
+            mModifiers = new List<Modifier>();
         }
 
         public Effect()
         {
-
+            mModifiers = new List<Modifier>();
         }
 
-        public struct Modifier
+        ~Effect()
+        {
+            mModifiers.Clear();
+        }
+
+        public class Modifier
         {
             private ModifierType mType;
             private int mValue;
@@ -39,7 +45,7 @@ namespace CardCore
 
         public enum ModifierType
         {
-            MODTYPE_NONE,
+            MODTYPE_NONE = 0,
             MODTYPE_MODIFYHP,
             MODTYPE_MODIFYMP,
             MODTYPE_MODIFYCOST,
@@ -105,6 +111,11 @@ namespace CardCore
             mTargetTypes = types;
         }
 
+        public uint GetTargetTypes()
+        {
+            return mTargetTypes;
+        }
+
         public void AddTargetType(GameEntity.EntityType type)
         {
             mTargetTypes |= Convert.ToUInt32(type);
@@ -118,6 +129,11 @@ namespace CardCore
         public void RemoveModifier(Modifier mod)
         {
             mModifiers.Remove(mod);
+        }
+
+        public void RemoveAllModifiers()
+        {
+            mModifiers.Clear();
         }
 
         public List<Modifier> GetModifiers()

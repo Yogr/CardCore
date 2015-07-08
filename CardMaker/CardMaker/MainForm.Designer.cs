@@ -86,6 +86,7 @@
             this.FileSaveAs_menuitem.Name = "FileSaveAs_menuitem";
             this.FileSaveAs_menuitem.Size = new System.Drawing.Size(152, 22);
             this.FileSaveAs_menuitem.Text = "Save As";
+            this.FileSaveAs_menuitem.Click += new System.EventHandler(this.FileSaveAs_menuitem_Click);
             // 
             // FileQuit_menuitem
             // 

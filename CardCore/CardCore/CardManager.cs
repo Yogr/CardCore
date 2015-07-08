@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CardCore
 {
-    public class CardManager
+    public class CardManager : IDisposable
     {
         private List<Card> mCards;
 
@@ -26,6 +26,21 @@ namespace CardCore
             mCards = new List<Card>();
         }
 
+        ~CardManager()
+        {
+
+        }
+
+        public void Dispose()
+        {
+            mCards.Clear();
+            mCards = null;
+        }
+
+        /// <summary>
+        /// Returns the next valid (unused) Id
+        /// </summary>
+        /// <returns>next valid unsigned int id</returns>
         public uint GetNextValidId()
         {
             if(mCards.Count > 0)
@@ -67,6 +82,11 @@ namespace CardCore
             string cardFp = FilePaths.GetFullPath(rootfolder + FilePaths.CARDS_PATH);
 
             CardParser parser = new CardParser(cardFp);
+
+            if (null == mCards)
+            {
+                mCards = new List<Card>();
+            }
 
             parser.Parse(mCards);
         }

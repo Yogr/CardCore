@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CardCore
 {
-    public class EffectManager
+    public class EffectManager : IDisposable
     {
         private List<Effect> mEffects;
 
@@ -21,6 +21,36 @@ namespace CardCore
             return sInstance;
         }
 
+        private EffectManager()
+        {
+            mEffects = new List<Effect>();
+        }
+
+        ~EffectManager()
+        {
+
+        }
+
+        public void Dispose()
+        {
+            mEffects.Clear();
+            mEffects = null;
+        }
+
+        /// <summary>
+        /// Returns the next valid (unused) Id
+        /// </summary>
+        /// <returns>next valid unsigned int id</returns>
+        public uint GetNextValidId()
+        {
+            if (mEffects.Count > 0)
+            {
+                return mEffects.Last().Id + 1;
+            }
+
+            return 0;
+        }
+
         public Effect GetEffectById(uint id)
         {
             foreach(Effect e in mEffects)
@@ -33,6 +63,21 @@ namespace CardCore
             return null;
         }
 
+        public Effect GetEffectByIndex(int index)
+        {
+            return mEffects[index];
+        }
+
+        public List<Effect> GetAllEffects()
+        {
+            return mEffects;
+        }
+
+        public void AddEffect(Effect e)
+        {
+            mEffects.Add(e);
+        }
+
         public void SaveDataToFile(string rootFolder)
         {
             string effectFp = FilePaths.GetFullPath(rootFolder + FilePaths.EFFECTS_PATH);
@@ -41,7 +86,7 @@ namespace CardCore
 
             EffectParser parser = new EffectParser(effectFp);
 
-            //parser.CreateNewFile(cardFp, mSets);
+            parser.CreateNewFile(effectFp, mEffects);
         }
 
         public void LoadEffectData(string rootfolder)
@@ -50,7 +95,13 @@ namespace CardCore
 
             EffectParser parser = new EffectParser(effectFp);
 
-            //mNextId = parser.Parse(mSets);
+            if(null == mEffects)
+            {
+                mEffects = new List<Effect>();
+            }
+
+            parser.Parse(mEffects);
         }
+
     }
 }

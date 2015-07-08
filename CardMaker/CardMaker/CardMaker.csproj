@@ -50,24 +50,6 @@
     <Compile Include="CardControl.Designer.cs">
       <DependentUpon>CardControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="CreateCardForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CreateCardForm.Designer.cs">
-      <DependentUpon>CreateCardForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CreateEffectForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CreateEffectForm.Designer.cs">
-      <DependentUpon>CreateEffectForm.cs</DependentUpon>
-    </Compile>
-    <Compile Include="CreateSetForm.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="CreateSetForm.Designer.cs">
-      <DependentUpon>CreateSetForm.cs</DependentUpon>
-    </Compile>
     <Compile Include="EffectControl.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -97,15 +79,6 @@
     </Compile>
     <EmbeddedResource Include="CardControl.resx">
       <DependentUpon>CardControl.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CreateCardForm.resx">
-      <DependentUpon>CreateCardForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CreateEffectForm.resx">
-      <DependentUpon>CreateEffectForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CreateSetForm.resx">
-      <DependentUpon>CreateSetForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="EffectControl.resx">
       <DependentUpon>EffectControl.cs</DependentUpon>

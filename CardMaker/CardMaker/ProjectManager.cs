@@ -27,26 +27,21 @@ namespace CardMaker
         private string mActiveProjectName;
         private string mActiveProjectFp;
         private string mActiveFolderRoot;
-        private XmlDocument mActiveDoc;
-
-        private XmlDocument mActiveCards;
-        private XmlDocument mActiveSet;
-        private XmlDocument mActiveEffects;
 
         public string GetActiveProject() { return mActiveProjectName; }
 
         public bool CreateNewFile(string name)
         {
-            mActiveDoc = new XmlDocument();
-            XmlDeclaration dec = mActiveDoc.CreateXmlDeclaration("1.0", null, null);
+            XmlDocument doc = new XmlDocument();
+            XmlDeclaration dec = doc.CreateXmlDeclaration("1.0", null, null);
 
-            mActiveDoc.AppendChild(dec);
+            doc.AppendChild(dec);
 
-            XmlElement docRoot = mActiveDoc.CreateElement("Master");
+            XmlElement docRoot = doc.CreateElement("Master");
 
-            mActiveDoc.AppendChild(docRoot);
+            doc.AppendChild(docRoot);
 
-            XmlElement mainNode = mActiveDoc.CreateElement("CardSet");
+            XmlElement mainNode = doc.CreateElement("CardSet");
             mainNode.InnerText = name;
             docRoot.AppendChild(mainNode);
 
@@ -66,6 +61,8 @@ namespace CardMaker
 
             SaveActiveProject();
 
+            doc.Save(mActiveProjectFp);
+
             return true;
         }
 
@@ -73,21 +70,23 @@ namespace CardMaker
         {
             try
             {
-                mActiveDoc = new XmlDocument();
-                mActiveDoc.Load(filepath);
+                XmlDocument doc = new XmlDocument();
+                doc.Load(filepath);
 
-                XmlNode node = mActiveDoc.SelectSingleNode("Master/CardSet");
+                XmlNode node = doc.SelectSingleNode("Master/CardSet");
 
                 mActiveProjectName = node.InnerText;
                 mActiveProjectFp = filepath;
                 mActiveFolderRoot = filepath.Substring(0, filepath.LastIndexOf('\\'));
 
                 // Load Effects
+                EffectManager.GetInstance().LoadEffectData(mActiveFolderRoot);
 
                 // Load Cards
                 CardManager.GetInstance().LoadCardData(mActiveFolderRoot);
 
                 // Load Sets
+                SetManager.GetInstance().LoadSetData(mActiveFolderRoot);
             }
             catch (Exception)
             {
@@ -108,7 +107,7 @@ namespace CardMaker
             SetManager.GetInstance().SaveDataToFile(mActiveFolderRoot);
 
             // Save active doc 
-            mActiveDoc.Save(mActiveProjectFp);
+            //.Save(mActiveProjectFp);
         }
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CardCore
 {
-    public class SetManager
+    public class SetManager : IDisposable
     {
         private List<Set> mSets;
 
@@ -19,6 +19,22 @@ namespace CardCore
                 sInstance = new SetManager();
             }
             return sInstance;
+        }
+
+        private SetManager()
+        {
+            mSets = new List<Set>();
+        }
+
+        ~SetManager()
+        {
+
+        }
+
+        public void Dispose()
+        {
+            mSets.Clear();
+            mSets = null;
         }
 
         public List<uint> GetSetCardIds(int setIndex)
@@ -44,7 +60,7 @@ namespace CardCore
 
             SetParser parser = new SetParser(setFp);
 
-            //parser.CreateNewFile(cardFp, mSets);
+            parser.CreateNewFile(setFp, mSets);
         }
 
         public void LoadSetData(string rootfolder)
@@ -53,7 +69,12 @@ namespace CardCore
 
             SetParser parser = new SetParser(setFp);
 
-            //mNextId = parser.Parse(mSets);
+            if (null == mSets)
+            {
+                mSets = new List<Set>();
+            }
+
+            parser.Parse(mSets);
         }
     }
 }

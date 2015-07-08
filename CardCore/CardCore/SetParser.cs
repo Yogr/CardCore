@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml;
 
 namespace CardCore
 {
     class SetParser : Parser
     {
-        private const string ROOT_NODE = "sets/set";
+        private const string ROOT_NODE = "Sets/Set";
         private const string SETS_NODE = "Sets";
         private const string SET_NODE = "Set";
         private const string P_NAME = "Name";
@@ -22,6 +23,73 @@ namespace CardCore
         {
         }
 
+        public void Parse(List<Set> outList)
+        {
+            XmlDocument doc = new XmlDocument();
+            doc.Load(mFilename);
 
+            XmlNodeList nodes = doc.SelectNodes(ROOT_NODE);
+
+            foreach (XmlNode node in nodes)
+            {
+                Set set = new Set();
+
+                foreach (XmlNode c in node.ChildNodes)
+                {
+                    switch (c.Name)
+                    {
+                        case P_NAME:
+                            {
+                                set.Name = c.InnerText;
+                                break;
+                            }
+                        default:
+                            {
+                                Console.WriteLine("Unhandled node type: " + c.Name);
+                                break;
+                            }
+                    }
+                }
+
+                outList.Add(set);
+            }
+        }
+
+
+        public void CreateNewFile(String filename, List<Set> sets)
+        {
+            XmlDocument doc = new XmlDocument();
+            XmlDeclaration dec = doc.CreateXmlDeclaration("1.0", null, null);
+
+            doc.AppendChild(dec);
+
+            XmlElement docRoot = doc.CreateElement(SETS_NODE);
+
+            doc.AppendChild(docRoot);
+
+            foreach (Set set in sets)
+            {
+                _AppendSetNode(doc, docRoot, set);
+            }
+
+            doc.Save(filename);
+        }
+
+        private void _AppendSetNode(XmlDocument doc, XmlElement root, Set data)
+        {
+            // Set up our effect element
+            XmlElement set = doc.CreateElement(SET_NODE);
+
+            // Declare element storage
+            XmlElement element;
+
+            // Create attribute nodes
+            element = doc.CreateElement(P_NAME);
+            element.InnerText = data.Name;
+            set.AppendChild(element);
+
+            // Finally, add our new set node
+            root.AppendChild(set);
+        }
     }
 }

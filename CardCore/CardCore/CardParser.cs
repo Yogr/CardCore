@@ -9,16 +9,20 @@ namespace CardCore
 {
     public class CardParser : Parser
     {
-        private const string ROOT_NODE  = "cards/card";
-        private const string CARDS_NODE = "Cards";
-        private const string CARD_NODE  = "Card";
-        private const string P_NAME     = "Name";
-        private const string P_TYPE     = "Type";
-        private const string P_SUBTYPE  = "SubType";
-        private const string P_ID       = "Id";
-        private const string P_COST     = "Cost";
-        private const string P_EFFECTS  = "Effects";
-        private const string P_EFFECT   = "Effect";
+        private const string ROOT_NODE   = "Cards/Card";
+        private const string CARDS_NODE  = "Cards";
+        private const string CARD_NODE   = "Card";
+        private const string P_NAME      = "Name";
+        private const string P_TYPE      = "Type";
+        private const string P_SUBTYPE   = "SubType";
+        private const string P_ID        = "Id";
+        private const string P_COST      = "Cost";
+        private const string P_FACTIONS  = "Factions";
+        private const string P_EFFECTS   = "Effects";
+        private const string P_EFFECT    = "Effect";
+        private const string P_ATTACK    = "Attack";
+        private const string P_DEFENSE   = "Defense";
+        private const string P_HITPOINTS = "Hitpoints";
 
         public CardParser(String filename)
             : base(filename)
@@ -47,12 +51,12 @@ namespace CardCore
                             }
                         case P_TYPE:
                             {
-                                card.Type = (Card.CardType)Convert.ToInt32(c.InnerText);
+                                card.Type = ParseEnum<Card.CardType>(c.InnerText);
                                 break;
                             }
                         case P_SUBTYPE:
                             {
-                                card.SubType = (Card.CardSubType)Convert.ToInt32(c.InnerText);
+                                card.SubType = ParseEnum<Card.CardSubType>(c.InnerText);
                                 break;
                             }
                         case P_ID:
@@ -63,6 +67,26 @@ namespace CardCore
                         case P_COST:
                             {
                                 card.Cost = Convert.ToUInt32(c.InnerText);
+                                break;
+                            }
+                        case P_FACTIONS:
+                            {
+                                card.SetFactions(Convert.ToUInt32(c.InnerText));
+                                break;
+                            }
+                        case P_ATTACK:
+                            {
+                                card.Attack = Convert.ToInt32(c.InnerText);
+                                break;
+                            }
+                        case P_DEFENSE:
+                            {
+                                card.Defense = Convert.ToInt32(c.InnerText);
+                                break;
+                            }
+                        case P_HITPOINTS:
+                            {
+                                card.Hitpoints = Convert.ToInt32(c.InnerText);
                                 break;
                             }
                         case P_EFFECTS:
@@ -76,7 +100,7 @@ namespace CardCore
                             }
                         default:
                             {
-                                Console.WriteLine(c.Name);
+                                Console.WriteLine("Unhandled node type: " + c.Name);
                                 break;
                             }
                     }
@@ -84,28 +108,6 @@ namespace CardCore
                 
                 outList.Add(card);
             }
-        }
-
-        public void EditNode(XmlNode node, int position)
-        {
-            // Find node at position
-
-            // Replace with node
-        }
-
-        public void InsertNode(XmlNode node, int position)
-        {
-            // Insert node at position
-        }
-
-        public void AppendNode(XmlNode node)
-        {
-            // Add node to end of nodes
-        }
-
-        public void SaveExistingFile()
-        {
-            
         }
 
         public void CreateNewFile(String filename, List<Card> cards)
@@ -154,6 +156,22 @@ namespace CardCore
 
             element = doc.CreateElement(P_COST);
             element.InnerText = data.Cost.ToString();
+            card.AppendChild(element);
+
+            element = doc.CreateElement(P_FACTIONS);
+            element.InnerText = data.GetFactions().ToString();
+            card.AppendChild(element);
+
+            element = doc.CreateElement(P_ATTACK);
+            element.InnerText = data.Attack.ToString();
+            card.AppendChild(element);
+
+            element = doc.CreateElement(P_DEFENSE);
+            element.InnerText = data.Defense.ToString();
+            card.AppendChild(element);
+
+            element = doc.CreateElement(P_HITPOINTS);
+            element.InnerText = data.Hitpoints.ToString();
             card.AppendChild(element);
 
             List<uint> effectsList = data.GetAllEffectIds();

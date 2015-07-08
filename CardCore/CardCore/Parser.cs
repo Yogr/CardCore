@@ -18,5 +18,10 @@ namespace CardCore
             mFilename = filename;
             mDoc = new XmlDocument();
         }
+
+        public static T ParseEnum<T>(string value)
+        {
+            return (T)Enum.Parse(typeof(T), value, true);
+        }
     }
 }
