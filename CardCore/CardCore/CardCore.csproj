@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{A4D894DC-8DDB-45C2-AD6F-831AB60C4940}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CardCore</RootNamespace>
     <AssemblyName>CardCore</AssemblyName>
@@ -46,6 +46,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
@@ -59,7 +62,6 @@
     <Compile Include="FilePaths.cs" />
     <Compile Include="GameEntity.cs" />
     <Compile Include="Parser.cs" />
-    <Compile Include="Program.cs" />
     <Compile Include="Set.cs" />
     <Compile Include="SetManager.cs" />
     <Compile Include="SetParser.cs" />
