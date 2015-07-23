@@ -70,6 +70,13 @@
             this.CardName_text = new System.Windows.Forms.TextBox();
             this.Card_listbox = new System.Windows.Forms.ListBox();
             this.Delete_btn = new System.Windows.Forms.Button();
+            this.Attacktext_label = new System.Windows.Forms.Label();
+            this.Defensetext_label = new System.Windows.Forms.Label();
+            this.Hitpointstext_label = new System.Windows.Forms.Label();
+            this.Attack_label = new System.Windows.Forms.Label();
+            this.Defense_label = new System.Windows.Forms.Label();
+            this.Hitpoints_label = new System.Windows.Forms.Label();
+            this.Tagline_label = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Card_image)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Frame_image)).BeginInit();
             this.SuspendLayout();
@@ -80,6 +87,7 @@
             this.CardHitpoints_text.Name = "CardHitpoints_text";
             this.CardHitpoints_text.Size = new System.Drawing.Size(62, 20);
             this.CardHitpoints_text.TabIndex = 88;
+            this.CardHitpoints_text.TextChanged += new System.EventHandler(this.CardHitpoints_text_TextChanged);
             // 
             // CardDefense_text
             // 
@@ -87,6 +95,7 @@
             this.CardDefense_text.Name = "CardDefense_text";
             this.CardDefense_text.Size = new System.Drawing.Size(61, 20);
             this.CardDefense_text.TabIndex = 87;
+            this.CardDefense_text.TextChanged += new System.EventHandler(this.CardDefense_text_TextChanged);
             // 
             // CardAttack_text
             // 
@@ -94,6 +103,7 @@
             this.CardAttack_text.Name = "CardAttack_text";
             this.CardAttack_text.Size = new System.Drawing.Size(61, 20);
             this.CardAttack_text.TabIndex = 86;
+            this.CardAttack_text.TextChanged += new System.EventHandler(this.CardAttack_text_TextChanged);
             // 
             // label13
             // 
@@ -184,6 +194,7 @@
             this.CardTagline_text.Name = "CardTagline_text";
             this.CardTagline_text.Size = new System.Drawing.Size(155, 64);
             this.CardTagline_text.TabIndex = 76;
+            this.CardTagline_text.TextChanged += new System.EventHandler(this.CardTagline_text_TextChanged);
             // 
             // CardCost_text
             // 
@@ -317,7 +328,7 @@
             this.Copyright_label.Enabled = false;
             this.Copyright_label.Font = new System.Drawing.Font("Century", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Copyright_label.ForeColor = System.Drawing.Color.White;
-            this.Copyright_label.Location = new System.Drawing.Point(514, 478);
+            this.Copyright_label.Location = new System.Drawing.Point(525, 481);
             this.Copyright_label.Name = "Copyright_label";
             this.Copyright_label.Size = new System.Drawing.Size(113, 12);
             this.Copyright_label.TabIndex = 62;
@@ -358,11 +369,18 @@
             // 
             this.CardFrame_chooser.FormattingEnabled = true;
             this.CardFrame_chooser.Items.AddRange(new object[] {
-            "Default"});
+            "Default",
+            "Gray",
+            "Purple",
+            "Black",
+            "Red",
+            "Green",
+            "Orange"});
             this.CardFrame_chooser.Location = new System.Drawing.Point(268, 163);
             this.CardFrame_chooser.Name = "CardFrame_chooser";
             this.CardFrame_chooser.Size = new System.Drawing.Size(175, 21);
             this.CardFrame_chooser.TabIndex = 59;
+            this.CardFrame_chooser.SelectedIndexChanged += new System.EventHandler(this.CardFrame_chooser_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -464,10 +482,106 @@
             this.Delete_btn.Text = "Delete";
             this.Delete_btn.UseVisualStyleBackColor = true;
             // 
+            // Attacktext_label
+            // 
+            this.Attacktext_label.BackColor = System.Drawing.Color.Black;
+            this.Attacktext_label.Enabled = false;
+            this.Attacktext_label.Font = new System.Drawing.Font("Century", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Attacktext_label.ForeColor = System.Drawing.Color.White;
+            this.Attacktext_label.Location = new System.Drawing.Point(484, 428);
+            this.Attacktext_label.Name = "Attacktext_label";
+            this.Attacktext_label.Size = new System.Drawing.Size(49, 14);
+            this.Attacktext_label.TabIndex = 91;
+            this.Attacktext_label.Text = "Attack";
+            // 
+            // Defensetext_label
+            // 
+            this.Defensetext_label.BackColor = System.Drawing.Color.Black;
+            this.Defensetext_label.Enabled = false;
+            this.Defensetext_label.Font = new System.Drawing.Font("Century", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Defensetext_label.ForeColor = System.Drawing.Color.White;
+            this.Defensetext_label.Location = new System.Drawing.Point(560, 427);
+            this.Defensetext_label.Name = "Defensetext_label";
+            this.Defensetext_label.Size = new System.Drawing.Size(56, 14);
+            this.Defensetext_label.TabIndex = 92;
+            this.Defensetext_label.Text = "Defense";
+            // 
+            // Hitpointstext_label
+            // 
+            this.Hitpointstext_label.BackColor = System.Drawing.Color.Black;
+            this.Hitpointstext_label.Enabled = false;
+            this.Hitpointstext_label.Font = new System.Drawing.Font("Century", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Hitpointstext_label.ForeColor = System.Drawing.Color.White;
+            this.Hitpointstext_label.Location = new System.Drawing.Point(643, 426);
+            this.Hitpointstext_label.Name = "Hitpointstext_label";
+            this.Hitpointstext_label.Size = new System.Drawing.Size(25, 14);
+            this.Hitpointstext_label.TabIndex = 93;
+            this.Hitpointstext_label.Text = "HP";
+            // 
+            // Attack_label
+            // 
+            this.Attack_label.BackColor = System.Drawing.Color.Black;
+            this.Attack_label.Enabled = false;
+            this.Attack_label.Font = new System.Drawing.Font("Century", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Attack_label.ForeColor = System.Drawing.Color.White;
+            this.Attack_label.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Attack_label.Location = new System.Drawing.Point(485, 442);
+            this.Attack_label.Name = "Attack_label";
+            this.Attack_label.Size = new System.Drawing.Size(46, 33);
+            this.Attack_label.TabIndex = 94;
+            this.Attack_label.Text = "0";
+            this.Attack_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Defense_label
+            // 
+            this.Defense_label.BackColor = System.Drawing.Color.Black;
+            this.Defense_label.Enabled = false;
+            this.Defense_label.Font = new System.Drawing.Font("Century", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Defense_label.ForeColor = System.Drawing.Color.White;
+            this.Defense_label.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Defense_label.Location = new System.Drawing.Point(563, 439);
+            this.Defense_label.Name = "Defense_label";
+            this.Defense_label.Size = new System.Drawing.Size(50, 33);
+            this.Defense_label.TabIndex = 95;
+            this.Defense_label.Text = "0";
+            this.Defense_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Hitpoints_label
+            // 
+            this.Hitpoints_label.BackColor = System.Drawing.Color.Black;
+            this.Hitpoints_label.Enabled = false;
+            this.Hitpoints_label.Font = new System.Drawing.Font("Century", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Hitpoints_label.ForeColor = System.Drawing.Color.White;
+            this.Hitpoints_label.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Hitpoints_label.Location = new System.Drawing.Point(632, 439);
+            this.Hitpoints_label.Name = "Hitpoints_label";
+            this.Hitpoints_label.Size = new System.Drawing.Size(48, 33);
+            this.Hitpoints_label.TabIndex = 96;
+            this.Hitpoints_label.Text = "0";
+            this.Hitpoints_label.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Tagline_label
+            // 
+            this.Tagline_label.BackColor = System.Drawing.Color.Black;
+            this.Tagline_label.Enabled = false;
+            this.Tagline_label.Font = new System.Drawing.Font("Century", 6.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Tagline_label.ForeColor = System.Drawing.Color.Gainsboro;
+            this.Tagline_label.Location = new System.Drawing.Point(480, 387);
+            this.Tagline_label.Name = "Tagline_label";
+            this.Tagline_label.Size = new System.Drawing.Size(199, 33);
+            this.Tagline_label.TabIndex = 97;
+            // 
             // CardControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.Tagline_label);
+            this.Controls.Add(this.Hitpoints_label);
+            this.Controls.Add(this.Defense_label);
+            this.Controls.Add(this.Attack_label);
+            this.Controls.Add(this.Hitpointstext_label);
+            this.Controls.Add(this.Defensetext_label);
+            this.Controls.Add(this.Attacktext_label);
             this.Controls.Add(this.CardName_label);
             this.Controls.Add(this.Delete_btn);
             this.Controls.Add(this.Card_listbox);
@@ -563,5 +677,12 @@
         private System.Windows.Forms.TextBox CardName_text;
         private System.Windows.Forms.ListBox Card_listbox;
         private System.Windows.Forms.Button Delete_btn;
+        private System.Windows.Forms.Label Attacktext_label;
+        private System.Windows.Forms.Label Defensetext_label;
+        private System.Windows.Forms.Label Hitpointstext_label;
+        private System.Windows.Forms.Label Attack_label;
+        private System.Windows.Forms.Label Defense_label;
+        private System.Windows.Forms.Label Hitpoints_label;
+        private System.Windows.Forms.Label Tagline_label;
     }
 }

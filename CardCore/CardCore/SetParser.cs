@@ -14,6 +14,7 @@ namespace CardCore
         private const string SET_NODE = "Set";
         private const string P_NAME = "Name";
         private const string P_TYPE = "Type";
+        private const string P_BLOCK = "Block";
         private const string P_ID = "Id";
         private const string P_CARDS = "Cards";
         private const string P_CARDID = "CardId";
@@ -34,18 +35,36 @@ namespace CardCore
             {
                 Set set = new Set();
 
-                foreach (XmlNode c in node.ChildNodes)
+                foreach (XmlNode n in node.ChildNodes)
                 {
-                    switch (c.Name)
+                    switch (n.Name)
                     {
                         case P_NAME:
                             {
-                                set.Name = c.InnerText;
+                                set.Name = n.InnerText;
+                                break;
+                            }
+                        case P_TYPE:
+                            {
+                                set.SetSetType(ParseEnum<Set.SetType>(n.InnerText));
+                                break;
+                            }
+                        case P_ID:
+                            {
+                                
+                                break;
+                            }
+                        case P_CARDS:
+                            {
+                                foreach(XmlNode card in n.ChildNodes)
+                                {
+                                    set.AddCard(Convert.ToUInt32(card.InnerText));
+                                }
                                 break;
                             }
                         default:
                             {
-                                Console.WriteLine("Unhandled node type: " + c.Name);
+                                Console.WriteLine("Unhandled node type: " + n.Name);
                                 break;
                             }
                     }
@@ -87,6 +106,25 @@ namespace CardCore
             element = doc.CreateElement(P_NAME);
             element.InnerText = data.Name;
             set.AppendChild(element);
+
+            element = doc.CreateElement(P_TYPE);
+            element.InnerText = data.GetSetType().ToString();
+            set.AppendChild(element);
+
+            List<uint> cardsList = data.GetCardIds();
+            if (0 < cardsList.Count)
+            {
+                XmlElement cards = doc.CreateElement(P_CARDS);
+
+                foreach (uint cId in cardsList)
+                {
+                    XmlElement card = doc.CreateElement(P_CARDID);
+                    card.InnerText = cId.ToString();
+                    cards.AppendChild(card);
+                }
+
+                set.AppendChild(cards);
+            }
 
             // Finally, add our new set node
             root.AppendChild(set);

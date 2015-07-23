@@ -42,12 +42,25 @@ namespace CardCore
             RARITY_TREASURERARE,
         };
 
+        public enum eFrameColor
+        {
+            FRAMECOLOR_DEFAULT,
+            FRAMECOLOR_GRAY,
+            FRAMECOLOR_PURPLE,
+            FRAMECOLOR_BLACK,
+            FRAMECOLOR_RED,
+            FRAMECOLOR_GREEN,
+            FRAMECOLOR_ORANGE,
+            FRAMECOLOR_COUNT,
+        };
+
         private string       mName;
         private uint         mId;
         private uint         mCost;
         private CardType     mType;
         private CardSubType  mSubType;
         private CardRarity   mRarity;
+        private eFrameColor   mFrameColor;
         private uint         mFactions;
         private int          mAttack;
         private int          mDefense;
@@ -89,6 +102,12 @@ namespace CardCore
         {
             set { this.mRarity = value; }
             get { return this.mRarity; }
+        }
+
+        public eFrameColor FrameColor
+        {
+            set { this.mFrameColor = value; }
+            get { return this.mFrameColor; }
         }
 
         public int Attack

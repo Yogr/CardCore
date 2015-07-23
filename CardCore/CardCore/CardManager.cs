@@ -61,6 +61,11 @@ namespace CardCore
             return mCards[index];
         }
 
+        public Card GetCardById(uint id)
+        {
+            return mCards.Find(x => x.Id == id);
+        }
+
         public void AddCard(Card card)
         {
             mCards.Add(card);

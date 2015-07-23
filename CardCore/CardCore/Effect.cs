@@ -46,15 +46,22 @@ namespace CardCore
         public enum ModifierType
         {
             MODTYPE_NONE = 0,
-            MODTYPE_MODIFYHP,
-            MODTYPE_MODIFYMP,
-            MODTYPE_MODIFYCOST,
-            MODTYPE_MODIFYATTACK,
-            MODTYPE_MODIFYDEFENSE,
-            MODTYPE_DRAWCARD,
-            MODTYPE_MOVECARD,
-            MODTYPE_DESTROY,
-            MODTYPE_RETURN,
+            MODTYPE_MODIFYHP,          //<! Changes target hitpoints by value
+            MODTYPE_MODIFYMP,          //<! Changes target mana by value
+            MODTYPE_MODIFYCOST,        //<! Changes target cost by value
+            MODTYPE_MODIFYATTACK,      //<! Changes target attack by value
+            MODTYPE_MODIFYDEFENSE,     //<! Changes target defense by value
+            MODTYPE_DRAWCARD,          //<! Target draws value number of cards
+            MODTYPE_DESTROY,           //<! Destroy target
+            MODTYPE_RETURN_TO_HAND,    //<! Return target to hand
+            MODTYPE_RETURN_TO_LIBRARY, //<! Return target to hand
+            MODTYPE_SHROUD,            //<! Provides target immunity to spells
+            MODTYPE_INDESTRUCTIBLE,    //<! Target cannot die due to damage
+            MODTYPE_MILL,              //<! Put the top x cards from library into graveyard
+            MODTYPE_LIFELINK,          //<! Whenever target deals damage, heals itself for x (0 to match damage)
+            MODTYPE_LIFELINK_USER,     //<! Whenever target deals damage, heals owner for x (0 to match damage)
+            MODTYPE_STUN,              //<! Disables target with the STUN modifier
+            MODTYPE_SLEEP,             //<! Disables target with the SLEEP modifier
             MODTYPE_COUNT,
         };
 

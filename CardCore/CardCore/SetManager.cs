@@ -52,6 +52,13 @@ namespace CardCore
             mSets.Remove(set);
         }
 
+        public Set GetSetByIndex(int index)
+        {
+            return index < mSets.Count ? mSets[index] : null;
+        }
+
+        public List<Set> GetAllSets() { return mSets; }
+
         public void SaveDataToFile(string rootFolder)
         {
             string setFp = FilePaths.GetFullPath(rootFolder + FilePaths.SETS_PATH);

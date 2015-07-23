@@ -18,6 +18,7 @@ namespace CardCore
         private const string P_ID        = "Id";
         private const string P_COST      = "Cost";
         private const string P_FACTIONS  = "Factions";
+        private const string P_FRAMECOLOR = "FrameColor";
         private const string P_EFFECTS   = "Effects";
         private const string P_EFFECT    = "Effect";
         private const string P_ATTACK    = "Attack";
@@ -72,6 +73,11 @@ namespace CardCore
                         case P_FACTIONS:
                             {
                                 card.SetFactions(Convert.ToUInt32(c.InnerText));
+                                break;
+                            }
+                        case P_FRAMECOLOR:
+                            {
+                                card.FrameColor = ParseEnum<Card.eFrameColor>(c.InnerText);
                                 break;
                             }
                         case P_ATTACK:
@@ -160,6 +166,10 @@ namespace CardCore
 
             element = doc.CreateElement(P_FACTIONS);
             element.InnerText = data.GetFactions().ToString();
+            card.AppendChild(element);
+
+            element = doc.CreateElement(P_FRAMECOLOR);
+            element.InnerText = data.FrameColor.ToString();
             card.AppendChild(element);
 
             element = doc.CreateElement(P_ATTACK);

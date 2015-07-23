@@ -124,6 +124,18 @@
       <Name>CardCore</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="assets\card_frame_black.jpg" />
+    <EmbeddedResource Include="assets\card_frame_default.jpg" />
+    <EmbeddedResource Include="assets\card_frame_gray.jpg" />
+    <EmbeddedResource Include="assets\card_frame_green.jpg" />
+    <EmbeddedResource Include="assets\card_frame_orange.jpg" />
+    <EmbeddedResource Include="assets\card_frame_purple.jpg" />
+    <EmbeddedResource Include="assets\card_frame_red.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\card_frame_default.bmp" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
